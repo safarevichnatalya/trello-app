@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="container-background"></div>
+  <div class="modal-window">
+    <div class="modal-window__container">
+      <div class="todo">
+        <div class="title">EDIT TASK</div>
+        <div class="todo__edit">
+          <label class="todo__label"> Name Task </label>
+          <input class="input todo__input name-task" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required />
+        </div>
+        <div class="todo__edit">
+          <label class="todo__label"> Description </label>
+          <textarea class="input todo__input name-descriprion" placeholder="Enter the description task" maxlength="200" required> </textarea>
+        </div>
+        <div class="todo__edit">
+          <label class="todo__label"> User Name </label>
+          <input class="input todo__input input-user-name" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required />
+
+        </div>
+        <div class="todo__btns">
+          <button class="btn-cancel">cancel</button>
+          <button class="btn-save">save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="todo">
+      <div class="todo__row">
+        <div class="todo__container">
+          <p class="title">TO DO</p>
+          <div class="todo__list">
+            <div class="todo__item">
+              <button class="btn-close"></button>
+              <p class="todo__name">Make a Kanban Apps</p>
+              <p class="todo__info">
+                <span class="date"> 12th Jan </span>
+                <span>
+                  Created by
+                  <span class="name-user"> Prahlads </span>
+                </span>
+              </p>
+              <p class="todo__desc"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exut culpa obcaecati
+                consequatur quisquam! Ducimus recusandae
+                voluptatum illum! Voluptatum ullam maiores qui corporis
+                earum expedita repellat iste laboriosam. Distinctio, sequi?. </span>
+              </p>
+              <div class="todo__footer">
+                <div class="todo__users">
+                  <div class="todo__user todo__user_first"></div>
+                  <div class="todo__user todo__user_second"></div>
+                </div>
+                <button class="btn-edit"></button>
+              </div>
+            </div>
+            <div class="todo__item">
+              <button class="btn-close"></button>
+              <p class="todo__name">Make a Kanban</p>
+              <p class="todo__info">
+                <span class="date"> 12th Jan </span>
+                <span>
+                  Created by
+                  <span class="name-user"> Prahlads </span>
+                </span>
+              </p>
+              <p class="todo__desc">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex
+                ut culpa obcaecati consequatur quisquam! Ducimus recusandae
+                voluptatum illum! Voluptatum ullam maiores qui corporis earum
+                expedita repellat iste laboriosam. Distinctio, sequi?.
+              </p>
+              <div class="todo__footer">
+                <div class="todo__users">
+                  <div class="todo__user todo__user_first"></div>
+                  <div class="todo__user todo__user_second"></div>
+                </div>
+                <button class="btn-edit"></button>
+              </div>
+            </div>
+          </div>
+          <button class="todo__item todo__item_add">+ Add new card</button>
+        </div>
+        <div class="todo__container">
+          <p class="title">DOING</p>
+        </div>
+        <div class="todo__container">
+          <p class="title">DONE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script type="module" src="src/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input:active,
+input,
+button:active,
+button {
+  border: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+html {
+  background: #f2f4f7;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: #98a2b3;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.todo__row {
+  padding: 80px 40px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 -8px;
+}
+
+.todo__container {
+  padding: 0 8px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.todo__item {
+  margin: 32px 0 24px;
+  background: #fcfcfd;
+  -webkit-box-shadow: 0px 0.5px 2px rgba(16, 24, 40, 0.3);
+          box-shadow: 0px 0.5px 2px rgba(16, 24, 40, 0.3);
+  border-radius: 8px;
+  padding: 30px 20px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.todo__item_add {
+  background: transparent;
+  height: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.todo__item_add:hover {
+  cursor: pointer;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #fcfcfd;
+}
+
+.todo__name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #1d2939;
+  margin: 0 0px 6px;
+  word-break: break-all;
+}
+
+.todo__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 700;
+  font-size: 14px;
+}
+.error-text{
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+.name-descriprion.error,
+.name-task.error{
+  border: 1px solid red;
+  position: relative;
+}
+.todo__desc {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 16px 0;
+  word-break: break-all;
+
+}
+
+.todo__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todo__users {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -4px;
+}
+
+.todo__user {
+  width: 24px;
+  height: 24px;
+  margin: 0px 4px;
+  border-radius: 50%;
+  background-size: 100%;
+}
+
+.todo__user_first {
+  background-image: url(../images/unsplash_5sF6NrB1MEg.png);
+}
+
+.todo__user_second {
+  background-image: url(../images/unsplash_KTlLJ5i2ho0.png);
+}
+
+.title {
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.0075em;
+  color: #667085;
+}
+
+.date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.date::before {
+  content: "\f073";
+  display: inline-block;
+  font-weight: 900;
+  font-size: 10px;
+  color: #1d2939;
+  font-family: "Font Awesome 5 Free";
+  padding-right: 5px;
+}
+
+.date::after {
+  content: "\f111";
+  font-weight: 900;
+  color: #98a2b3;
+  font-family: "Font Awesome 5 Free";
+  font-size: 5px;
+  padding: 0 5px;
+}
+
+.name-user {
+  color: #667085;
+}
+
+.btn-edit {
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.btn-edit:hover::before {
+  color: #1d2939;
+}
+
+.btn-edit::before {
+  content: "\f304";
+  font-weight: 900;
+  font-size: 15px;
+  color: #98a2b3;
+  font-family: "Font Awesome 5 Free";
+}
+
+.btn-close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.btn-close::before {
+  content: "\f00d";
+  font-weight: 900;
+  font-size: 20px;
+  color: #98a2b3;
+  font-family: "Font Awesome 5 Free";
+}
+
+.btn-close:hover::before {
+  color: #1d2939;
+}
+
+.container-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #1d2939;
+  opacity: 0;
+  z-index: -1;
+  /* display: none; */
+}
+
+.modal-window {
+  opacity: 0;
+  position: fixed;
+  /* display: none; */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index:-1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.modal-window__container {
+  background: #fcfcfd;
+  -webkit-box-shadow: 0px 0.5px 2px rgba(16, 24, 40, 0.3);
+          box-shadow: 0px 0.5px 2px rgba(16, 24, 40, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-window .title {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo__edit {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.todo__label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.todo__input {
+  border: 1px solid #98a2b3;
+  width: 94%;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.todo__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+textarea {
+  resize: none;
+  height: 50px;
+  white-space: inherit;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.input:focus {
+  border: 1px solid #000000;
+}
+
+.input:hover {
+  border: 1px solid #000000;
+}
+
+.btn-save {
+  max-width: 100px;
+  width: 100%;
+  background-color: #3bd09c;
+  color: #fff;
+  padding: 5px 0;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+
+.btn-save:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.btn-cancel {
+  max-width: 100px;
+  width: 100%;
+  background-color: #ed5e68;
+  color: #fff;
+  padding: 5px 0;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+
+.btn-cancel:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+/*# sourceMappingURL=styles.css.map */
