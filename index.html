@@ -1,111 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main page</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Main page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
 
-<body>
-  <div class="container-background"></div>
-  <div class="modal-window">
-    <div class="modal-window__container">
-      <div class="todo">
-        <div class="title">EDIT TASK</div>
-        <div class="todo__edit">
-          <label class="todo__label"> Name Task </label>
-          <input class="input todo__input name-task" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required />
-        </div>
-        <div class="todo__edit">
-          <label class="todo__label"> Description </label>
-          <textarea class="input todo__input name-descriprion" placeholder="Enter the description task" maxlength="200" required> </textarea>
-        </div>
-        <div class="todo__edit">
-          <label class="todo__label"> User Name </label>
-          <input class="input todo__input input-user-name" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required />
+    <body>
+        <div class="container-background"></div>
+        <div class="modal-window">
+            <div class="modal-window__container">
+                <div class="todo">
+                    <div class="title">EDIT TASK</div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Name Task
+                        </label>
+                        <input class="input todo__input name-task" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required/>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Description
+                        </label>
+                        <textarea class="input todo__input name-descriprion" placeholder="Enter the description task" maxlength="200" required></textarea>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            User Name
+                        </label>
+                        <input class="input todo__input input-user-name" value="Make a Kanban Apps" placeholder="Enter the title task" maxlength="50" required/>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="priority">
+                        <div class="priority__container">
+                            <button class="priority__item priority__item_low">
+                                low
+                            </button>
+                            <button class="priority__item priority__item_medium">
+                                medium
+                            </button>
+                            <button class="priority__item priority__item_high">
+                                high
+                            </button>
+                            <button class="priority__item priority__item_related">
+                                work-related
+                            </button>
+                            <button class="priority__item priority__item_personal">
+                                personal
+                            </button>
+                        </div>
 
-        </div>
-        <div class="todo__btns">
-          <button class="btn-cancel">cancel</button>
-          <button class="btn-save">save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="todo">
-      <div class="todo__row">
-        <div class="todo__container">
-          <p class="title">TO DO</p>
-          <div class="todo__list">
-            <div class="todo__item">
-              <button class="btn-close"></button>
-              <p class="todo__name">Make a Kanban Apps</p>
-              <p class="todo__info">
-                <span class="date"> 12th Jan </span>
-                <span>
-                  Created by
-                  <span class="name-user"> Prahlads </span>
-                </span>
-              </p>
-              <p class="todo__desc"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exut culpa obcaecati
-                consequatur quisquam! Ducimus recusandae
-                voluptatum illum! Voluptatum ullam maiores qui corporis
-                earum expedita repellat iste laboriosam. Distinctio, sequi?. </span>
-              </p>
-              <div class="todo__footer">
-                <div class="todo__users">
-                  <div class="todo__user todo__user_first"></div>
-                  <div class="todo__user todo__user_second"></div>
+                    </div>
+                    <div class="todo__btns">
+                        <button class="btn-cancel">cancel</button>
+                        <button class="btn-save">save</button>
+                    </div>
                 </div>
-                <button class="btn-edit"></button>
-              </div>
             </div>
-            <div class="todo__item">
-              <button class="btn-close"></button>
-              <p class="todo__name">Make a Kanban</p>
-              <p class="todo__info">
-                <span class="date"> 12th Jan </span>
-                <span>
-                  Created by
-                  <span class="name-user"> Prahlads </span>
-                </span>
-              </p>
-              <p class="todo__desc">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex
-                ut culpa obcaecati consequatur quisquam! Ducimus recusandae
-                voluptatum illum! Voluptatum ullam maiores qui corporis earum
-                expedita repellat iste laboriosam. Distinctio, sequi?.
-              </p>
-              <div class="todo__footer">
-                <div class="todo__users">
-                  <div class="todo__user todo__user_first"></div>
-                  <div class="todo__user todo__user_second"></div>
-                </div>
-                <button class="btn-edit"></button>
-              </div>
-            </div>
-          </div>
-          <button class="todo__item todo__item_add">+ Add new card</button>
         </div>
-        <div class="todo__container">
-          <p class="title">DOING</p>
-        </div>
-        <div class="todo__container">
-          <p class="title">DONE</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-  <script type="module" src="src/index.js"></script>
-</body>
 
+        <div class="create-task">
+            <div class="create-task__container">
+                <div class="todo">
+                    <div class="title">CREATE TASK</div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Name Task
+                        </label>
+                        <input class="input todo__input name-task" value="" placeholder="Enter the title task" maxlength="50" required/>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Description
+                        </label>
+                        <textarea class="input todo__input name-descriprion" value="" placeholder="Enter the description task" maxlength="200" required></textarea>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            User Name
+                        </label>
+                        <input class="input todo__input input-user-name" value="" placeholder="Enter the title task" maxlength="50" required/>
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Category
+                        </label>
+                        <input class="todo__input input-label" placeholder="Enter label" maxlength="50" required/>
+                        <span class="max-label">you entered the maximum number of categories</span>
+                        <span class="error-text"></span>
+                        <div class="todo__flex"></div>
+                    </div>
+                    <div class="todo__edit">
+                        <label class="todo__label">
+                            Priority
+                        </label>
+                        <button class="add-priority">add priority</button>
+                        <div class="priority">
+                            <div class="priority__container">
+                                <button class="priority__item priority__item_low">
+                                    low
+                                </button>
+                                <button class="priority__item priority__item_medium">
+                                    medium
+                                </button>
+                                <button class="priority__item priority__item_high">
+                                    high
+                                </button>
+                                <button class="priority__item priority__item_related">
+                                    work-related
+                                </button>
+                                <button class="priority__item priority__item_personal">
+                                    personal
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="todo__btns">
+                        <button class="btn-cancel">cancel</button>
+                        <button class="btn-create" data-create='true'>create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="todo">
+                <div class="todo__row">
+                    <div class="todo__container">
+                        <p class="title">TO DO</p>
+                        <div class="todo__list">
+                            <div class="todo__item">
+                                <button class="btn-close"></button>
+                                <p class="priority__item priority__item_low select">
+                                    low
+                                </p>
+                                <p class="todo__name">Make a Kanban Apps</p>
+                                <p class="todo__info">
+                                    <span class="date">
+                                        12th Jan
+                                    </span>
+                                    <span>
+                                        Created by
+                                        <span class="name-user">
+                                            Prahlads</span>
+                                    </span>
+                                </p>
+                                <p class="date-edit"></p>
+                                <p class="todo__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exut culpa obcaecativoluptatum illum! Voluptatum ullam maiores qui corporis
+                                </p>
+                                <div class="todo__footer">
+                                    <div class="todo__users">
+                                        <div class="todo__user todo__user_first"></div>
+                                        <div class="todo__user todo__user_second"></div>
+                                    </div>
+                                    <button class="btn-edit"></button>
+                                </div>
+                            </div>
+                            <div class="todo__item">
+                                <button class="btn-close"></button>
+                                <p class="priority__item priority__item_high">
+                                    high
+                                </p>
+                                <p class="todo__name">Make a Kanban</p>
+                                <p class="todo__info">
+
+                                    <span class="date">
+                                        12th Jan
+                                    </span>
+                                    <span>
+                                        Created by
+                                        <span class="name-user">
+                                            Prahlads
+                                        </span>
+                                    </span>
+                                </p>
+                                <p class="date-edit"></p>
+                                <p class="todo__desc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti accusantium numquam optio laborum quis vero culpa cum quo, ex aspernatur, voluptates placeat rem distinctio. Quis corporis ea voluptatum repellendus consequuntur, similique perspiciatis porro ipsum. Veniam, voluptate sunt, laudantium dolorum quis commodi accusamus modi, quaerat quos laborum magnam optio minima ullam.
+                                </p>
+                                <div class="todo__footer">
+                                    <div class="todo__users">
+                                        <div class="todo__user todo__user_first"></div>
+                                        <div class="todo__user todo__user_second"></div>
+                                    </div>
+                                    <button class="btn-edit"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="todo__item todo__item_add">+ Add new card</button>
+                    </div>
+                    <div class="todo__container">
+                        <p class="title">DOING</p>
+                    </div>
+                    <div class="todo__container">
+                        <p class="title">DONE</p>
+                    </div>
+                </div>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+                <script src="src/index.js"></script><!-- <script src="src/mainActions.js"></script> --></body>
+        </body>
+    </body>
 </html>
