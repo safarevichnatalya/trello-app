@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        <div class="loader"></div>
         <div class="container-background"></div>
         <div class="modal-window">
             <div class="modal-window__container">
@@ -136,79 +137,88 @@
         <div class="container">
             <div class="todo">
                 <div class="todo__row">
-                    <div class="todo__container">
+                    <div class="todo__container" id="current">
                         <p class="title">TO DO</p>
-                        <div class="todo__list">
-                            <div class="todo__item">
-                                <button class="btn-close"></button>
-                                <p class="priority__item priority__item_low select">
-                                    low
-                                </p>
-                                <p class="todo__name">Make a Kanban Apps</p>
-                                <p class="todo__info">
-                                    <span class="date">
-                                        12th Jan
-                                    </span>
-                                    <span>
-                                        Created by
-                                        <span class="name-user">
-                                            Prahlads</span>
-                                    </span>
-                                </p>
-                                <p class="date-edit"></p>
-                                <p class="todo__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exut culpa obcaecativoluptatum illum! Voluptatum ullam maiores qui corporis
-                                </p>
-                                <div class="todo__footer">
-                                    <div class="todo__users">
-                                        <div class="todo__user todo__user_first"></div>
-                                        <div class="todo__user todo__user_second"></div>
-                                    </div>
-                                    <button class="btn-edit"></button>
-                                </div>
-                            </div>
-                            <div class="todo__item">
-                                <button class="btn-close"></button>
-                                <p class="priority__item priority__item_high">
-                                    high
-                                </p>
-                                <p class="todo__name">Make a Kanban</p>
-                                <p class="todo__info">
-
-                                    <span class="date">
-                                        12th Jan
-                                    </span>
-                                    <span>
-                                        Created by
-                                        <span class="name-user">
-                                            Prahlads
+                        <div class="todo__inner">
+                            <button class="todo__item todo__item_add">+ Add new card</button>
+                            <div class="todo__list  todo__list_item first">
+                                <!-- <div class="todo__item" draggable="true">
+                                    <button class="btn-close"></button>
+                                    <p class="priority__item priority__item_low select">
+                                        lows
+                                    </p>
+                                    <p class="todo__name">Make a Kanban Apps</p>
+                                    <p class="todo__info">
+                                        <span class="date">
+                                            12th Jan
                                         </span>
-                                    </span>
-                                </p>
-                                <p class="date-edit"></p>
-                                <p class="todo__desc">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti accusantium numquam optio laborum quis vero culpa cum quo, ex aspernatur, voluptates placeat rem distinctio. Quis corporis ea voluptatum repellendus consequuntur, similique perspiciatis porro ipsum. Veniam, voluptate sunt, laudantium dolorum quis commodi accusamus modi, quaerat quos laborum magnam optio minima ullam.
-                                </p>
-                                <div class="todo__footer">
-                                    <div class="todo__users">
-                                        <div class="todo__user todo__user_first"></div>
-                                        <div class="todo__user todo__user_second"></div>
+                                        <span>
+                                            Created by
+                                            <span class="name-user">
+                                                Prahlads</span>
+                                        </span>
+                                    </p>
+                                    <p class="date-edit"></p>
+                                    <p class="todo__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exut culpa
+                                                                        obcaecativoluptatum illum! Voluptatum ullam maiores qui corporis
+                                    </p>
+                                    <div class="todo__footer">
+                                        <div class="todo__users">
+                                            <div class="todo__user todo__user_first"></div>
+                                            <div class="todo__user todo__user_second"></div>
+                                        </div>
+                                        <button class="btn-edit"></button>
                                     </div>
-                                    <button class="btn-edit"></button>
+                                </div> -->
+                                <div class="todo__item" id="gfd" draggable="true">
+                                    <button class="btn-close"></button>
+                                    <p class="priority__item priority__item_high">
+                                        high
+                                    </p>
+                                    <p class="todo__name">Make a Kanban</p>
+                                    <p class="todo__info">
+                                        <span class="date">
+                                            12th Jan
+                                        </span>
+                                        <span>
+                                            Created by
+                                            <span class="name-user">
+                                                Prahlads
+                                            </span>
+                                        </span>
+                                    </p>
+                                    <p class="date-edit"></p>
+                                    <p class="todo__desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti accusantium numquam
+                                                                        optio laborum quis vero culpa cum quo, ex aspernatur, voluptates placeat rem distinctio.
+                                                                        Quis corporis ea voluptatum repellendus consequuntur, similique perspiciatis porro
+                                                                        ipsum. Veniam, voluptate sunt, laudantium dolorum quis commodi accusamus modi, quaerat
+                                                                        quos laborum magnam optio minima ullam.
+                                    </p>
+                                    <div class="todo__footer">
+                                        <div class="todo__users">
+                                            <div class="todo__user todo__user_first"></div>
+                                            <div class="todo__user todo__user_second"></div>
+                                        </div>
+                                        <button class="btn-edit"></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="todo__item todo__item_add">+ Add new card</button>
                     </div>
-                    <div class="todo__container">
+                    <div class="todo__container" id="doing">
                         <p class="title">DOING</p>
+                        <div class="todo__list_item second"></div>
                     </div>
-                    <div class="todo__container">
+                    <div class="todo__container  " id="done">
                         <p class="title">DONE</p>
+                        <div class=" todo__list_item third"></div>
+
                     </div>
                 </div>
-
-                <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-                <script src="src/index.js"></script><!-- <script src="src/mainActions.js"></script> --></body>
-        </body>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="src/index.js"></script>
     </body>
 </html>

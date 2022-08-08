@@ -1,4 +1,5 @@
 //clearing the fields/очищение полей
+
 function clearingInput(item) {
   $(`.${item}`).val(" ");
   $(this).closest(".todo").find(".name-descriprion").val(" ");
@@ -22,6 +23,119 @@ let dateItem = null;
 let priorityText = null;
 let textPriority = null;
 let classSelectedItem = null;
+let todoList = document.querySelector("#current .todo__list_item");
+let doingTask = document.querySelector("#doing .todo__list_item");
+let doneTask = document.querySelector("#done .todo__list_item");
+
+// drag and drop
+function dragDrop() {
+  $("body").on("dragstart", ".todo__item", function () {
+    $(this).addClass("over");
+  });
+  $("body").on("dragend", ".todo__item", function () {
+    $(this).removeClass("over");
+    seveinLocalStorege();
+    isEmptyFirsItem()
+  });
+
+  // drop
+  $("body").on("drop", ".todo__list_item", function () {
+    seveinLocalStorege();
+    isEmptyFirsItem();
+  });
+
+  $("body").on("dragstart", ".todo__list_item", function () {
+    const over = document.querySelector(".over");
+
+    const buttonAdd = document.querySelector(".todo__item_add");
+    if ($(this).id === "current") {
+      $(this).insertAdfter(over, buttonAdd);
+    } else {
+      $(this).append(over);
+    }
+  });
+
+  $(".todo__list_item").on("dragover", function (e) {
+    e.preventDefault();
+
+    const over = document.querySelector(".over");
+
+    const buttonAdd = document.querySelector(".todo__item_add");
+    if ($(this).id === "current") {
+      $(this).insertAdfter(over, buttonAdd);
+    } else {
+      $(this).append(over);
+    }
+  });
+}
+dragDrop();
+
+function seveinLocalStorege() {
+  localStorage.clear();
+
+  // current
+  const currentTodoItem = todoList.innerHTML;
+  localStorage.setItem("currentTodo", currentTodoItem);
+
+  const doingTaskItem = doingTask.innerHTML;
+  localStorage.setItem("doingTask", doingTaskItem);
+
+  const doneTaskItem = doneTask.innerHTML;
+  localStorage.setItem("doneTaskItem", doneTaskItem);
+}
+
+function isEmptyFirsItem() {
+  if ($(".todo__list_item.first").children().length > 0) {
+    $(".todo__inner").css("flex-direction", "column-reverse");
+    $(".todo__inner").css("justify-content", " flex-end");
+
+    $('.todo__list_item.first').css('height', 'auto')
+  }
+  if ($(".todo__list_item.first").children().length == 0) {
+    $("#current .todo__inner").css("flex-direction", "column");
+    $('.todo__list_item.first').css('height', '100%')
+  }
+}
+isEmptyFirsItem();
+function ifLoaded() {
+  if ($(".todo__list_item").children()) {
+    $(".loader").css("display", "block");
+    $(".todo__list_item.first").children(".todo__item").remove();
+    $(".todo__list_item.third").children().remove();
+    $(".todo__list_item.second").children().remove();
+  }
+  $(".loader").css("display", "none");
+
+  // console.log($(".todo__list_item.first").length )
+
+  let currentTodoItem = localStorage.getItem("currentTodo");
+  let doingTaskItem = localStorage.getItem("doingTask");
+  let doneTaskItem = localStorage.getItem("doneTaskItem");
+
+  // if(currentTodoItem){
+  //   $('.todo__list_item.first').children('.todo__item').remove()
+  // }
+  // console.log(typeof currentTodoItem )
+  // if(!currentTodoItem || !doingTaskItem || !doneTaskItem ){
+  //   return;
+  // }
+
+  $(".todo__list_item.first").append(currentTodoItem);
+
+  $(".todo__list_item.second").append(doingTaskItem);
+
+  $(".todo__list_item.third").append(doneTaskItem);
+  isEmptyFirsItem();
+}
+
+window.onload = function () {
+  var loaded = sessionStorage.getItem("loaded");
+  if (loaded) {
+    ifLoaded();
+  } else {
+    sessionStorage.setItem("loaded", true);
+  }
+};
 
 // date/дата
 let dateEdit = new Date();
@@ -29,6 +143,8 @@ let dateEdit = new Date();
 // remove task/удаление таски
 $(document.body).on("click", ".btn-close", (e) => {
   e.target.closest(".todo__item").remove();
+  seveinLocalStorege();
+  isEmptyFirsItem()
 });
 
 // edit task
@@ -42,8 +158,18 @@ $("body").on("click", ".btn-edit", function () {
   priorityText = parentItem.find(".priority__item");
 
   $(".container-background")
-    .animate({ zIndex: 1 }, 1)
-    .animate({ opacity: 0.5 }, 100);
+    .animate(
+      {
+        zIndex: 1,
+      },
+      1
+    )
+    .animate(
+      {
+        opacity: 0.5,
+      },
+      100
+    );
 
   // priority check/проверка приоритета
   let buttonPriority = document.querySelectorAll(
@@ -64,8 +190,21 @@ $("body").on("click", ".btn-edit", function () {
   $(".name-task").val(title.text().replace(/ +/g, " ").trim());
   $(".name-descriprion").val(desc.text().replace(/ +/g, " ").trim());
   $(".input-user-name").val(nameUser.text().replace(/ +/g, " ").trim());
-  $(".modal-window").animate({ zIndex: 2 }, 1).animate({ opacity: 1 }, 100);
+  $(".modal-window")
+    .animate(
+      {
+        zIndex: 2,
+      },
+      1
+    )
+    .animate(
+      {
+        opacity: 1,
+      },
+      100
+    );
   $("html").css("overflow-y", "hidden");
+  seveinLocalStorege();
 
   return [parentItem, title, desc, dateItem, priorityText];
 });
@@ -89,9 +228,31 @@ $(".btn-save").click(function () {
   // close modal window / закрытие модального окна
   $("html").css("overflow-y", "scroll");
   $(".container-background")
-    .animate({ opacity: 0 }, 100)
-    .animate({ zIndex: -1 }, 1);
-  $(".modal-window").animate({ opacity: 0 }, 100).animate({ zIndex: -1 }, 1);
+    .animate(
+      {
+        opacity: 0,
+      },
+      100
+    )
+    .animate(
+      {
+        zIndex: -1,
+      },
+      1
+    );
+  $(".modal-window")
+    .animate(
+      {
+        opacity: 0,
+      },
+      100
+    )
+    .animate(
+      {
+        zIndex: -1,
+      },
+      1
+    );
 
   // writing changes to the DOM / записываем изменения в DOM
   let editNameTask = $(".name-task").val();
@@ -102,6 +263,11 @@ $(".btn-save").click(function () {
   nameUser.text(userTask);
 
   classSelectedItem = null;
+  seveinLocalStorege();
+
+  // seveinLocalStorege()
+  // const html = todoList.innerHTML;
+  // localStorage.setItem("todoList", html);
 });
 
 let arrayForCategory = [];
@@ -126,14 +292,8 @@ let objMarkup = {};
 let countCreate = 0;
 let createName = null;
 
-// tr = localStorage.getItem("hiDen");
-
 // create task / создание таски
 $(".btn-create").click(function () {
-  // let tttt2 = document.querySelector(".todo__list");
-  // const html = tttt2.innerHTML;
-  // localStorage.setItem("hiDen", html);
-
   let itemMarkup;
   let count = ++countCreate;
   let category = document.querySelectorAll(".todo__category");
@@ -168,7 +328,7 @@ $(".btn-create").click(function () {
     });
     let date = dateEdit.getDate() + "." + "0" + (+dateEdit.getMonth() + 1);
 
-    itemMarkup = `<div class="todo__item" data-id = "${count}">
+    itemMarkup = `<div class="todo__item" data-id = "${count}" draggable="true">
         <button class="btn-close"></button>
         <p class="${classSelectedItem}">
         ${textPriority}
@@ -206,17 +366,48 @@ $(".btn-create").click(function () {
     objMarkup[count] = itemMarkup;
 
     // insert element into DOМ / вставляем элемент в DOМ
-    $(".todo__list").append(itemMarkup);
+    let todoList = document.querySelector(".todo__list");
+    todoList.insertAdjacentHTML("beforeend", itemMarkup);
+
+    // $(".todo__list").insertAdjacentHTML('afterend',itemMarkup);
 
     // hide modal window / скрытие модального окна
     $(".container-background")
-      .animate({ opacity: 0 }, 100)
-      .animate({ zIndex: -1 }, 1);
-    $(".create-task").animate({ opacity: 0 }, 100).animate({ zIndex: -1 }, 1);
+      .animate(
+        {
+          opacity: 0,
+        },
+        100
+      )
+      .animate(
+        {
+          zIndex: -1,
+        },
+        1
+      );
+    $(".create-task")
+      .animate(
+        {
+          opacity: 0,
+        },
+        100
+      )
+      .animate(
+        {
+          zIndex: -1,
+        },
+        1
+      );
     $("html").css("overflow-y", "scroll");
+    seveinLocalStorege();
 
     // clearing the fields
+    isEmptyFirsItem();  
+
     clearingInput("input");
+    // seveinLocalStorege()
+    // const html = todoList.innerHTML;
+    // localStorage.setItem("todoList", html);
   }
 });
 
@@ -226,14 +417,48 @@ $(".todo__input").keypress(function () {
   $(this).removeClass("error");
 });
 
-
 // cancel button click / нажатие кнопки cancel
 $(".btn-cancel").click(function () {
   $("html").css("overflow-y", "scroll");
   $(".container-background")
-    .animate({ opacity: 0 }, 100)
-    .animate({ zIndex: -1 }, 1);
-  $(".modal-window").animate({ opacity: 0 }, 100).animate({ zIndex: -1 }, 1);
+    .animate(
+      {
+        opacity: 0,
+      },
+      100
+    )
+    .animate(
+      {
+        zIndex: -1,
+      },
+      1
+    );
+  $(".modal-window")
+    .animate(
+      {
+        opacity: 0,
+      },
+      100
+    )
+    .animate(
+      {
+        zIndex: -1,
+      },
+      1
+    );
+  $(".create-task")
+    .animate(
+      {
+        opacity: 0,
+      },
+      100
+    )
+    .animate(
+      {
+        zIndex: -1,
+      },
+      1
+    );
 });
 
 function clearingFields() {
@@ -246,10 +471,32 @@ function clearingFields() {
 $(".todo__item_add").click(function () {
   clearingFields();
   $(".container-background")
-    .animate({ zIndex: 1 }, 1)
-    .animate({ opacity: 0.5 }, 100);
+    .animate(
+      {
+        zIndex: 1,
+      },
+      1
+    )
+    .animate(
+      {
+        opacity: 0.5,
+      },
+      100
+    );
 
-  $(".create-task").animate({ zIndex: 2 }, 1).animate({ opacity: 1 }, 100);
+  $(".create-task")
+    .animate(
+      {
+        zIndex: 2,
+      },
+      1
+    )
+    .animate(
+      {
+        opacity: 1,
+      },
+      100
+    );
   $("html").css("overflow-y", "hidden");
 });
 
@@ -294,4 +541,42 @@ $(".input-label").keypress(function (event) {
 
   $(".max-label").css("display", "flex");
   $(".max-label").addClass("active");
+});
+
+// отследивание изменений
+let observer = new MutationObserver((mutations) => {
+  for (let mutation of mutations) {
+    for (let node of mutation.addedNodes) {
+      dragDrop();
+    }
+  }
+});
+
+let observerRow = new MutationObserver((mutations) => {
+  //  localStorage.clear()
+  for (let mutation of mutations) {
+    // seveinLocalStorege()
+    // localStorage.clear();
+    // // проверим новые узлы
+    // const html = todoList.innerHTML;
+    // localStorage.setItem("todoList", html);
+    // console.log(html);
+  }
+});
+
+let currentTodo = document.querySelector(".todo__row");
+
+observerRow.observe(currentTodo, {
+  childList: true, // наблюдать за непосредственными детьми
+  subtree: true, // и более глубокими потомками
+  characterDataOldValue: true, // передавать старое значение в колбэк
+});
+
+let currentTodoList = document.querySelector(".todo");
+
+// наблюдать за всем, кроме атрибутов
+observer.observe(currentTodoList, {
+  childList: true, // наблюдать за непосредственными детьми
+  subtree: true, // и более глубокими потомками
+  characterDataOldValue: true, // передавать старое значение в колбэк
 });
