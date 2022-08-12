@@ -1,6 +1,7 @@
 import seveInLocalStorage from "./seveInLocalStorage.js";
 import isEmptyFirsItem from "./isEmptyFirsItem.js";
 import clearingInput from "./clearingInput.js";
+import loader from "./loader.js";
 
 let parentItem = null;
 let title = null;
@@ -136,9 +137,17 @@ function saveTask() {
     seveInLocalStorage();
   });
 }
+
 // create task / создание таски
 function createTask() {
   $(".btn-create").click(function () {
+    // loader();
+    // function save() {
+    // let fileUpload = file.files[0];
+
+    // console.log(URL.createObjectURL(fileUpload));
+    // $('.upload__img').css(`background-image`, `url(${URL.createObjectURL(fileUpload)})`)
+    // }
     let itemMarkup;
     let count = ++countCreate;
     let category = document.querySelectorAll(".todo__category");
@@ -160,7 +169,6 @@ function createTask() {
         return false;
       }
     });
-
     // create task / создание таски
     if (!emptyField) {
       category.forEach((item) => {
@@ -175,9 +183,11 @@ function createTask() {
 
       itemMarkup = `<div class="todo__item" data-id = "${count}" draggable="true">
         <button class="btn-close"></button>
+        <p class="priority__item priority__item_conpleted">Completed</p>
         <p class="${classSelectedItem}">
         ${textPriority}
         </p>
+        
         <p class="todo__name">${$(this)
           .closest(".todo")
           .find(".name-task")
@@ -199,10 +209,7 @@ function createTask() {
       <div class ="todo__flex">
       ${categoryText.join(" ")}</div>
         <div class="todo__footer">
-          <div class="todo__users">
-            <div class="todo__user todo__user_first"></div>
-            <div class="todo__user todo__user_second"></div>
-          </div>
+        
           <button class="btn-edit"></button>
         </div>
       </div>
@@ -267,4 +274,3 @@ function selectCategory() {
 export default function action() {
   editTask(), saveTask(), createTask(), selectCategory();
 }
-

@@ -1,5 +1,6 @@
 import seveInLocalStorage from "./seveInLocalStorage.js";
 import isEmptyFirsItem from "./isEmptyFirsItem.js";
+import coutTask from "./coutTask.js";
 
 
 export default function dragDrop() {
@@ -10,6 +11,7 @@ export default function dragDrop() {
       $(this).removeClass("over");
       seveInLocalStorage();
       isEmptyFirsItem()
+      coutTask ()
     });
   
     // drop

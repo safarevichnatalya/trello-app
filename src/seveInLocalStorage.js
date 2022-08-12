@@ -3,7 +3,7 @@ let doingTask = document.querySelector("#doing .todo__list_item");
 let doneTask = document.querySelector("#done .todo__list_item");
 
 export default function seveInLocalStorage() {
-    localStorage.clear();
+    // localStorage.clear();
   
     // current
     const currentTodoItem = todoList.innerHTML;

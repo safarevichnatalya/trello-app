@@ -2,6 +2,6 @@
 
 export default function addPriority() {
   $(".add-priority").click(function (e) {
-    $(".priority").css("display", "block");
+    $(".priority").toggleClass('active');
   });
 }

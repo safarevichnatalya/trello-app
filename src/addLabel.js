@@ -22,7 +22,7 @@ export default function addLabel() {
     }
     // category counter / счетчик категорий
     ++countPressEnter;
-    if (countPressEnter <= 5) {
+    if ($(".todo__flex").children().length < 5) {
       $(this)
         .closest(".todo__edit")
         .find(".todo__flex")

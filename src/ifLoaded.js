@@ -1,6 +1,8 @@
 import isEmptyFirsItem from "./isEmptyFirsItem.js";
+import coutTask from "./coutTask.js";
 
 export default function ifLoaded() {
+
     if ($(".todo__list_item").children()) {
       $(".loader").css("display", "block");
       $(".todo__list_item.first").children(".todo__item").remove();
@@ -16,6 +18,7 @@ export default function ifLoaded() {
     $(".todo__list_item.first").append(currentTodoItem);
     $(".todo__list_item.second").append(doingTaskItem);
     $(".todo__list_item.third").append(doneTaskItem);
+    coutTask()  
     isEmptyFirsItem();
   }
   

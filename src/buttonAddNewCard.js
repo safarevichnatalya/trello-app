@@ -1,6 +1,7 @@
 import clearingFields from "./clearingFields.js"
 
 export default function buttonAddNewCard() {
+  // $('.file-name').text("")
   $(".todo__item_add").click(function () {
     clearingFields();
     $(".container-background")

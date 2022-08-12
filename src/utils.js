@@ -9,7 +9,13 @@ import removeTask from "./removeTask.js";
 import addPriority from "./addPriority.js";
 import keyPressInput from "./keyPressInput.js";
 import action from "./action.js";
+import closeModalWindow from "./closeModalWindow.js";
+import coutTask from "./coutTask.js";
+import load from "./load.js";
 
+
+
+load()
 //main action
 action();
 
@@ -24,6 +30,8 @@ windowOnLoad();
 removeTask();
 addPriority();
 keyPressInput();
+closeModalWindow()
 
+coutTask()
 
 
