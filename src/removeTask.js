@@ -1,5 +1,7 @@
 import seveInLocalStorage from "./seveInLocalStorage.js";
 import isEmptyFirsItem from "./isEmptyFirsItem.js";
+import coutTask from "./coutTask.js";
+
 
 
 
@@ -8,5 +10,6 @@ export default function removeTask() {
     e.target.closest(".todo__item").remove();
     seveInLocalStorage();
     isEmptyFirsItem();
+    coutTask()
   });
 }

@@ -1,7 +1,11 @@
 import seveInLocalStorage from "./seveInLocalStorage.js";
 import isEmptyFirsItem from "./isEmptyFirsItem.js";
 import clearingInput from "./clearingInput.js";
-import loader from "./loader.js";
+// import loader from "./loader.js";
+import coutTask from "./coutTask.js";
+
+let countPressEnter = 1;
+let counterReset = 0;
 
 let parentItem = null;
 let title = null;
@@ -137,10 +141,48 @@ function saveTask() {
     seveInLocalStorage();
   });
 }
+$(".input-label").keypress(function (event) {
+  if (event.key !== "Enter") {
+    return;
+  }
+  //empty value / пустое значение
+  if ($(this).val().length == 0) {
+    $(this).addClass("error");
+    $(this).siblings(".error-text").text("tst");
+    return;
+  }
+  // removal
+  if ($(".todo__flex").children()) {
+    let deleteCategory = $(".todo__flex").children("").find(".delete");
+    deleteCategory.click(function (e) {
+      $(this).parent(".todo__category").remove();
+    });
+  }
+  // category counter / счетчик категорий
+  ++countPressEnter;
+  if (countPressEnter <= 5) {
+    $(this)
+      .closest(".todo__edit")
+      .find(".todo__flex")
+      .append(
+        `<p class="todo__category">${$(
+          this
+        ).val()}<button class="delete"></button></p>`
+      );
+    $(".input-label").val("");
+    counterReset = countPressEnter;
+    return counterReset;
+  }
+  counterReset;
+  // countPressEnter = 0;
+  $(".max-label").css("display", "flex");
+  $(".max-label").addClass("active");
+});
 
 // create task / создание таски
 function createTask() {
   $(".btn-create").click(function () {
+ 
     // loader();
     // function save() {
     // let fileUpload = file.files[0];
@@ -183,7 +225,7 @@ function createTask() {
 
       itemMarkup = `<div class="todo__item" data-id = "${count}" draggable="true">
         <button class="btn-close"></button>
-        <p class="priority__item priority__item_conpleted">Completed</p>
+        <p class=" priority__item_completed">Completed</p>
         <p class="${classSelectedItem}">
         ${textPriority}
         </p>
@@ -253,6 +295,12 @@ function createTask() {
       isEmptyFirsItem();
       clearingInput("input");
     }
+    $(".input-label").text("");
+    $(".todo__flex").children().remove();
+    $(".max-label").css("display", "none");
+    $(".input-label").val("");
+    countPressEnter = 0;
+    coutTask()
   });
 }
 

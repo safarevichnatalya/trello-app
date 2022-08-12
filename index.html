@@ -8,11 +8,35 @@
         <title>Main page</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="css/styles.css"/>
-        <script></script>
     </head>
 
     <body>
-
+        <div class="preview">
+            <div class="preview__container">
+                <div class="preview__left">
+                    <div class="preview__box">
+                        <p class="preview__title">
+                            welcome to
+                            <br>
+                            "TO-DO APP"
+                        </p>
+                        <p class="preview__info">
+                            created by
+                            <a href="https://drive.google.com/file/d/1e22jTlZeoUgL4COu7xknf-lWXVjZIYG_/view?usp=sharing">
+                                Natalya Safarevich
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="preview__right">
+                    <div class="preview__img laptop"></div>
+                    <div class="preview__img table"></div>
+                    <div class="preview__img person"></div>
+                    <div class="preview__img tumb"></div>
+                    <div class="preview__img window"></div>
+                </div>
+            </div>
+        </div>
         <div class="loader"></div>
         <div class="container-background"></div>
 
@@ -68,8 +92,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="create-task">
             <div class="create-task__container">
                 <button class="btn-cancel"></button>
@@ -145,13 +167,17 @@
 
         <header class="header">
             <div class="header__container">
-                <p class="header__name">
-                    Anima Agrawal
-                    <span>
-                        U.P, India
-                    </span>
-                </p>
-                <div class="header__img"></div>
+                <a href="https://github.com/safarevichnatalya/trello-app/tree/app" class="github"></a>
+                <div class="header__row">
+                    <p class="header__name">
+                        Anima Agrawal
+                        <span>
+                            U.P, India
+                        </span>
+                    </p>
+                    <div class="header__img"></div>
+                </div>
+
 
             </div>
         </header>
@@ -168,12 +194,11 @@
                                 <button class="todo__item todo__item_add">+</button>
                             </p>
                             <div class="todo__inner">
-
                                 <div class="todo__list  todo__list_item first">
-
                                     <div class="todo__item" id="gfd" draggable="true">
                                         <button class="btn-close"></button>
-                                        <p class="priority__item priority__item_conpleted">Completed</p>
+                                        <!-- <div class="mobile-edition"></div> -->
+                                        <p class=" priority__item_completed">Completed</p>
                                         <p class="priority__item priority__item_high">
                                             high
                                         </p>
@@ -192,10 +217,10 @@
                                         <p class="date-edit"></p>
                                         <p class="todo__desc">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti accusantium numquam
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        optio laborum quis vero culpa cum quo, ex aspernatur, voluptates placeat rem distinctio.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Quis corporis ea voluptatum repellendus consequuntur, similique perspiciatis porro
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ipsum. Veniam, voluptate sunt, laudantium dolorum quis commodi accusamus modi, quaerat
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quos laborum magnam optio minima ullam.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        optio laborum quis vero culpa cum quo, ex aspernatur, voluptates placeat rem distinctio.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Quis corporis ea voluptatum repellendus consequuntur, similique perspiciatis porro
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ipsum. Veniam, voluptate sunt, laudantium dolorum quis commodi accusamus modi, quaerat
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quos laborum magnam optio minima ullam.
                                         </p>
                                         <div class="todo__footer">
 
@@ -222,7 +247,9 @@
                 </div>
             </div>
         </div>
-
+        <footer class="footer">
+            <div class="footer__container"></div>
+        </footer>
         <script type="module" src="src/utils.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </body>

@@ -4,4 +4,6 @@ export default function loader (){
     setTimeout(() => {
         $(".loader").removeClass('active')
     }, 800);
+
+   
 }

@@ -13,12 +13,9 @@ import closeModalWindow from "./closeModalWindow.js";
 import coutTask from "./coutTask.js";
 import load from "./load.js";
 
-
-
-load()
+load();
 //main action
 action();
-
 
 dragDrop();
 observer();
@@ -30,8 +27,9 @@ windowOnLoad();
 removeTask();
 addPriority();
 keyPressInput();
-closeModalWindow()
+closeModalWindow();
 
-coutTask()
+coutTask();
 
 
+// mobileAction();
